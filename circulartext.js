@@ -20,7 +20,7 @@ function initCircularText(selector, options = {}) {
     const span = document.createElement('span');
     span.textContent = char;
     const angle = angleStep * i;
-    span.style.transform = `rotate(${angle}deg) translate(${radius}px) rotate(90deg)`;
+    span.style.transform = 'rotate(' + angle + 'deg) translate(' + radius + 'px) rotate(90deg)';
     span.style.left = '50%';
     span.style.top = '50%';
     spin.appendChild(span);
@@ -29,17 +29,17 @@ function initCircularText(selector, options = {}) {
   container.appendChild(spin);
 
   if (onHover === 'speedUp') {
-    container.addEventListener('mouseenter', () => {
+    container.addEventListener('mouseenter', function () {
       spin.style.animationDuration = (spinDuration / 4) + 's';
     });
-    container.addEventListener('mouseleave', () => {
+    container.addEventListener('mouseleave', function () {
       spin.style.animationDuration = spinDuration + 's';
     });
   } else if (onHover === 'pause') {
-    container.addEventListener('mouseenter', () => {
+    container.addEventListener('mouseenter', function () {
       spin.style.animationPlayState = 'paused';
     });
-    container.addEventListener('mouseleave', () => {
+    container.addEventListener('mouseleave', function () {
       spin.style.animationPlayState = 'running';
     });
   }
