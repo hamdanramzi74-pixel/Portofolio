@@ -268,3 +268,41 @@ footer a{ color: var(--ink); text-decoration:none; }
 @media (max-width: 640px){
   .stack-photo{ width: 200px; height: 260px; }
 }
+/* Work thumbnails */
+.work-item{
+  grid-template-columns: 100px 60px 1fr 140px;
+}
+.work-thumb{
+  width: 100px; height: 70px; object-fit: cover;
+  border-radius: 3px; border: 1px solid var(--line);
+}
+.work-info{ display: contents; }
+
+/* Bounce cards showcase */
+.bounceCardsContainer{
+  position: relative;
+  margin: 80px auto 40px;
+  height: 280px;
+}
+.bounceCardsContainer .card{
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 180px; height: 240px;
+  margin-top: -120px; margin-left: -90px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,.4);
+  cursor: pointer;
+  border: 1px solid var(--line);
+}
+.bounceCardsContainer .card .image{
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+@media (max-width: 640px){
+  .work-item{ grid-template-columns: 70px 1fr; }
+  .work-thumb{ width: 70px; height: 50px; }
+  .work-num{ display:none; }
+  .bounceCardsContainer{ height: 200px; }
+  .bounceCardsContainer .card{ width: 130px; height: 170px; margin-top: -85px; margin-left: -65px; }
+}
