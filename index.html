@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,6 +6,7 @@
 <title>Portofolio — Hamdan Ramzi</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 <div class="noise"></div>
@@ -36,11 +36,13 @@
     <div class="count">03 Selected Projects</div>
   </div>
 
-  <div class="bounceCardsContainer">
-    <div class="card"><img class="image" src="images/1.jpg" alt="Nootspaces"></div>
-    <div class="card"><img class="image" src="images/2.jpg" alt="Studio Archive"></div>
-    <div class="card"><img class="image" src="images/3.jpg" alt="Monoline"></div>
-  </div>
+  <section id="photo-stack" class="photo-stack">
+    <div class="stack-pin">
+      <div class="stack-photo" id="photo1"><img src="images/1.jpg" alt="Nootspaces"></div>
+      <div class="stack-photo" id="photo2"><img src="images/2.jpg" alt="Studio Archive"></div>
+      <div class="stack-photo" id="photo3"><img src="images/3.jpg" alt="Monoline"></div>
+    </div>
+  </section>
 
   <div class="work-grid">
     <a href="#" class="work-item">
@@ -114,15 +116,20 @@
   <a href="mailto:hello@hamdanramzi.dev">hello@hamdanramzi.dev</a>
 </footer>
 
-<script src="animasi.js"></script>
 <script>
-  initBounceCards('.bounceCardsContainer', {
-    transformStyles: [
-      'rotate(-8deg) translate(-90px)',
-      'rotate(4deg) translate(0px)',
-      'rotate(-3deg) translate(90px)'
-    ]
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#photo-stack",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true
+    }
   });
+
+  tl.to("#photo1", { y: "120vh", ease: "none" }, 0)
+    .to("#photo2", { y: "120vh", ease: "none" }, 1);
 </script>
 
 </body>
