@@ -6,7 +6,6 @@
 <title>Portofolio — Hamdan Ramzi</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="circulartext.js"></script>
 </head>
 <body>
 <div class="noise"></div>
@@ -105,6 +104,7 @@
 
 <script src="animasi.js"></script>
 <script src="typetext.js"></script>
+<script src="circulartext.js"></script>
 <script>
   initBounceCards('.bounceCardsContainer', {
     transformStyles: [
@@ -115,15 +115,14 @@
   });
 
   initCircularText('#heroCircular', {
-  text: "EVERYTHING*ABOUT*ME*",
-  spinDuration: 20,
-  onHover: "speedUp",
-  radius: 30
-});
+    text: "EVERYTHING*ABOUT*ME*",
+    spinDuration: 20,
+    onHover: "speedUp",
+    radius: 30
   });
 
-  document.querySelectorAll('.bounceCardsContainer .card').forEach(card => {
-    card.addEventListener('click', () => {
+  document.querySelectorAll('.bounceCardsContainer .card').forEach(function (card) {
+    card.addEventListener('click', function () {
       document.getElementById('wcTitle').textContent = card.dataset.title;
       document.getElementById('wcYear').textContent = card.dataset.year;
       document.getElementById('wcType').textContent = card.dataset.type;
@@ -133,4 +132,4 @@
 </script>
 
 </body>
-  </html>
+</html>
