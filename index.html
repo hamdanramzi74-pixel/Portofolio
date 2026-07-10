@@ -25,7 +25,7 @@
 <section id="top" class="hero">
   <div class="kicker">自己紹介 — About Me</div>
   <h1>PORTOFOLIO</h1>
-  <p>Membangun antarmuka web yang bersih, cepat, dan penuh detail — dari konsep hingga baris kode terakhir.</p>
+  <p class="typewrite" id="heroType"></p>
   <div class="scroll-hint">SCROLL</div>
 </section>
 
@@ -36,36 +36,24 @@
   </div>
 
   <div class="bounceCardsContainer">
-    <div class="card"><img class="image" src="1.jpg" alt="Nootspaces"></div>
-    <div class="card"><img class="image" src="2.jpg" alt="Studio Archive"></div>
-    <div class="card"><img class="image" src="3.jpg" alt="Monoline"></div>
+    <div class="card" data-title="Nootspaces" data-desc="Media website untuk mendokumentasikan pemikiran dan ide, dengan estetika modern yang mencerminkan gaya media minimalis." data-year="2026" data-type="Design & Development">
+      <img class="image" src="1.jpg" alt="Nootspaces">
+    </div>
+    <div class="card" data-title="Studio Archive" data-desc="Arsip proyek studio, disusun rapi dengan navigasi yang jelas dan fokus pada tipografi." data-year="2025" data-type="Development">
+      <img class="image" src="2.jpg" alt="Studio Archive">
+    </div>
+    <div class="card" data-title="Monoline" data-desc="Eksplorasi desain visual bertema garis tunggal (monoline), sederhana dan penuh detail." data-year="2025" data-type="Design">
+      <img class="image" src="3.jpg" alt="Monoline">
+    </div>
   </div>
 
-  <div class="work-grid">
-    <a href="#" class="work-item">
-      <img src="1.jpg" alt="Nootspaces" class="work-thumb">
-      <div class="work-info">
-        <div class="work-num">01</div>
-        <div class="work-title">Nootspaces</div>
-        <div class="work-meta">2026 · Design & Dev <span class="arrow">→</span></div>
-      </div>
-    </a>
-    <a href="#" class="work-item">
-      <img src="2.jpg" alt="Studio Archive" class="work-thumb">
-      <div class="work-info">
-        <div class="work-num">02</div>
-        <div class="work-title">Studio Archive</div>
-        <div class="work-meta">2025 · Development <span class="arrow">→</span></div>
-      </div>
-    </a>
-    <a href="#" class="work-item">
-      <img src="3.jpg" alt="Monoline" class="work-thumb">
-      <div class="work-info">
-        <div class="work-num">03</div>
-        <div class="work-title">Monoline</div>
-        <div class="work-meta">2025 · Design <span class="arrow">→</span></div>
-      </div>
-    </a>
+  <div class="work-caption" id="workCaption">
+    <div class="wc-meta">
+      <span id="wcYear">—</span>
+      <span id="wcType">Tap salah satu foto di atas</span>
+    </div>
+    <h3 id="wcTitle">Pilih Project</h3>
+    <p id="wcDesc" class="typewrite"></p>
   </div>
 </section>
 
@@ -114,6 +102,7 @@
 </footer>
 
 <script src="animasi.js"></script>
+<script src="typetext.js"></script>
 <script>
   initBounceCards('.bounceCardsContainer', {
     transformStyles: [
@@ -121,6 +110,28 @@
       'rotate(4deg) translate(0px)',
       'rotate(-3deg) translate(90px)'
     ]
+  });
+
+  initTextType('#heroType', {
+    texts: [
+      "Membangun antarmuka web yang bersih, cepat, dan penuh detail.",
+      "Dari konsep hingga baris kode terakhir.",
+      "Front-end developer & designer."
+    ],
+    typingSpeed: 25,
+    deletingSpeed: 45,
+    pauseDuration: 3100,
+    cursorCharacter: "_",
+    showCursor: true
+  });
+
+  document.querySelectorAll('.bounceCardsContainer .card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.getElementById('wcTitle').textContent = card.dataset.title;
+      document.getElementById('wcYear').textContent = card.dataset.year;
+      document.getElementById('wcType').textContent = card.dataset.type;
+      typeOnce(document.getElementById('wcDesc'), card.dataset.desc, 25);
+    });
   });
 </script>
 
