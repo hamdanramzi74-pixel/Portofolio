@@ -4,8 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio — Home</title>
+<title>Portofolio — Hamdan Ramzi</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
 <div class="noise"></div>
@@ -13,20 +14,99 @@
 <header>
   <div class="logo">HAMDAN RAMZI<span>Web Design / Development</span></div>
   <nav>
-    <a href="index.html" class="active">Top</a>
-    <a href="about.html">About</a>
-    <a href="work.html">Work</a>
-    <a href="contact.html">Contact</a>
+    <a href="#top">Top</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <main>
-<section class="hero">
+
+<section id="top" class="hero">
   <div class="kicker">自己紹介 — About Me</div>
   <h1>PORTOFOLIO</h1>
   <p>Membangun antarmuka web yang bersih, cepat, dan penuh detail — dari konsep hingga baris kode terakhir.</p>
   <div class="scroll-hint">SCROLL</div>
 </section>
+
+<section id="work">
+  <div class="section-head">
+    <h2>WORK</h2>
+    <div class="count">03 Selected Projects</div>
+  </div>
+
+  <div class="bounceCardsContainer">
+    <div class="card"><img class="image" src="images/1.jpg" alt="Nootspaces"></div>
+    <div class="card"><img class="image" src="images/2.jpg" alt="Studio Archive"></div>
+    <div class="card"><img class="image" src="images/3.jpg" alt="Monoline"></div>
+  </div>
+
+  <div class="work-grid">
+    <a href="#" class="work-item">
+      <img src="images/1.jpg" alt="Nootspaces" class="work-thumb">
+      <div class="work-info">
+        <div class="work-num">01</div>
+        <div class="work-title">Nootspaces</div>
+        <div class="work-meta">2026 · Design & Dev <span class="arrow">→</span></div>
+      </div>
+    </a>
+    <a href="#" class="work-item">
+      <img src="images/2.jpg" alt="Studio Archive" class="work-thumb">
+      <div class="work-info">
+        <div class="work-num">02</div>
+        <div class="work-title">Studio Archive</div>
+        <div class="work-meta">2025 · Development <span class="arrow">→</span></div>
+      </div>
+    </a>
+    <a href="#" class="work-item">
+      <img src="images/3.jpg" alt="Monoline" class="work-thumb">
+      <div class="work-info">
+        <div class="work-num">03</div>
+        <div class="work-title">Monoline</div>
+        <div class="work-meta">2025 · Design <span class="arrow">→</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div>
+    <div class="big-num">23</div>
+    <div class="about-stats">
+      <div><strong>4+</strong>Years</div>
+      <div><strong>30+</strong>Projects</div>
+      <div><strong>12</strong>Clients</div>
+    </div>
+  </div>
+  <p>Saya seorang front-end developer yang fokus pada detail kecil yang membuat perbedaan besar — tipografi, motion, dan struktur yang jelas. Setiap proyek dimulai dari pertanyaan sederhana: apa yang benar-benar dibutuhkan orang yang memakainya?</p>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <h2>CONTACT</h2>
+    <div class="count">Let's talk</div>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <p class="desc">Punya proyek yang ingin dikerjakan bersama? Kirim pesan dan mari kita mulai obrolannya.</p>
+      <div class="info-block"><label>Address</label><div>Jl. Melati No. 21, Bandung</div></div>
+      <div class="info-block"><label>Phone</label><div>+62 812 3456 7890</div></div>
+      <div class="info-block"><label>E-mail</label><div>hello@hamdanramzi.dev</div></div>
+    </div>
+    <div class="form">
+      <h3>Contact Form</h3>
+      <form action="#" method="post">
+        <div class="field"><input type="text" name="name" placeholder="Your name"></div>
+        <div class="field"><input type="tel" name="phone" placeholder="Your phone"></div>
+        <div class="field"><input type="email" name="email" placeholder="Your e-mail"></div>
+        <div class="field"><textarea name="message" rows="3" placeholder="Message"></textarea></div>
+        <button type="submit" class="send-btn">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -34,5 +114,16 @@
   <a href="mailto:hello@hamdanramzi.dev">hello@hamdanramzi.dev</a>
 </footer>
 
+<script src="animasi.js"></script>
+<script>
+  initBounceCards('.bounceCardsContainer', {
+    transformStyles: [
+      'rotate(-8deg) translate(-90px)',
+      'rotate(4deg) translate(0px)',
+      'rotate(-3deg) translate(90px)'
+    ]
+  });
+</script>
+
 </body>
-</html>
+  </html>
