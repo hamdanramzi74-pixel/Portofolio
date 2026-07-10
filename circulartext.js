@@ -6,7 +6,7 @@ function initCircularText(selector, options = {}) {
     text = "TEXT*HERE*",
     spinDuration = 20,
     onHover = "speedUp",
-    radius = 50
+    radius = 35
   } = options;
 
   const spin = document.createElement('div');
