@@ -308,19 +308,19 @@ footer a{ color: var(--ink); text-decoration:none; }
 }
 .hero{ position: relative; }
 
-.circular-text{
+;.circular-text{
   position: absolute;
   top: 32px;
   right: 32px;
-  width: 110px;
-  height: 110px;
+  width: 70px;
+  height: 70px;
   z-index: 5;
 }
 .circular-text span{
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 10px;
+  font-size: 7px;
   font-weight: 700;
   letter-spacing: .05em;
   color: var(--ink-dim);
@@ -335,13 +335,14 @@ footer a{ color: var(--ink); text-decoration:none; }
   animation-duration: 20s;
   transition: animation-duration 0.3s ease;
 }
-.circular-text .ct-center{
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
+@keyframes ct-rotate{
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media (max-width: 640px){
+  .circular-text{ top: 20px; right: 20px; width: 55px; height: 55px; }
+  .circular-text span{ font-size: 6px; }
+}
 }
 @keyframes ct-rotate{
   from { transform: rotate(0deg); }
