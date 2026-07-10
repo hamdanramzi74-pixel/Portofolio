@@ -6,7 +6,7 @@ function initCircularText(selector, options = {}) {
     text = "TEXT*HERE*",
     spinDuration = 20,
     onHover = "speedUp",
-    radius = 45
+    radius = 50
   } = options;
 
   const spin = document.createElement('div');
@@ -25,10 +25,6 @@ function initCircularText(selector, options = {}) {
     span.style.top = '50%';
     spin.appendChild(span);
   });
-
-  const center = document.createElement('div');
-  center.className = 'ct-center';
-  spin.appendChild(center);
 
   container.appendChild(spin);
 
