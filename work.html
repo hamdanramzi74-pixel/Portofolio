@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portofolio — Work</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
 <div class="noise"></div>
@@ -25,21 +26,37 @@
     <h2>WORK</h2>
     <div class="count">03 Selected Projects</div>
   </div>
+
+  <div class="bounceCardsContainer">
+    <div class="card"><img class="image" src="images/1.jpg" alt="Nootspaces"></div>
+    <div class="card"><img class="image" src="images/2.jpg" alt="Studio Archive"></div>
+    <div class="card"><img class="image" src="images/3.jpg" alt="Monoline"></div>
+  </div>
+
   <div class="work-grid">
     <a href="#" class="work-item">
-      <div class="work-num">01</div>
-      <div class="work-title">Nootspaces</div>
-      <div class="work-meta">2026 · Design & Dev <span class="arrow">→</span></div>
+      <img src="images/1.jpg" alt="Nootspaces" class="work-thumb">
+      <div class="work-info">
+        <div class="work-num">01</div>
+        <div class="work-title">Nootspaces</div>
+        <div class="work-meta">2026 · Design & Dev <span class="arrow">→</span></div>
+      </div>
     </a>
     <a href="#" class="work-item">
-      <div class="work-num">02</div>
-      <div class="work-title">Studio Archive</div>
-      <div class="work-meta">2025 · Development <span class="arrow">→</span></div>
+      <img src="images/2.jpg" alt="Studio Archive" class="work-thumb">
+      <div class="work-info">
+        <div class="work-num">02</div>
+        <div class="work-title">Studio Archive</div>
+        <div class="work-meta">2025 · Development <span class="arrow">→</span></div>
+      </div>
     </a>
     <a href="#" class="work-item">
-      <div class="work-num">03</div>
-      <div class="work-title">Monoline</div>
-      <div class="work-meta">2025 · Design <span class="arrow">→</span></div>
+      <img src="images/3.jpg" alt="Monoline" class="work-thumb">
+      <div class="work-info">
+        <div class="work-num">03</div>
+        <div class="work-title">Monoline</div>
+        <div class="work-meta">2025 · Design <span class="arrow">→</span></div>
+      </div>
     </a>
   </div>
 </section>
@@ -49,6 +66,17 @@
   <div>© 2026 Hamdan Ramzi</div>
   <a href="mailto:hello@hamdanramzi.dev">hello@hamdanramzi.dev</a>
 </footer>
+
+<script src="animasi.js"></script>
+<script>
+  initBounceCards('.bounceCardsContainer', {
+    transformStyles: [
+      'rotate(-8deg) translate(-90px)',
+      'rotate(4deg) translate(0px)',
+      'rotate(-3deg) translate(90px)'
+    ]
+  });
+</script>
 
 </body>
 </html>
