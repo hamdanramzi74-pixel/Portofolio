@@ -235,3 +235,36 @@ footer a{ color: var(--ink); text-decoration:none; }
   .bounceCardsContainer{ height: 200px; }
   .bounceCardsContainer .card{ width: 130px; height: 170px; margin-top: -85px; margin-left: -65px; }
 }
+.photo-stack{
+  height: 250vh;
+  position: relative;
+  margin: 60px 0;
+}
+.stack-pin{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.stack-photo{
+  position: absolute;
+  width: 280px;
+  height: 360px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  border: 1px solid var(--line);
+}
+.stack-photo img{
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+#photo1{ z-index: 3; }
+#photo2{ z-index: 2; }
+#photo3{ z-index: 1; }
+
+@media (max-width: 640px){
+  .stack-photo{ width: 200px; height: 260px; }
+}
