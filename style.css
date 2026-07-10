@@ -308,7 +308,7 @@ footer a{ color: var(--ink); text-decoration:none; }
 }
 .hero{ position: relative; }
 
-;.circular-text{
+.circular-text{
   position: absolute;
   top: 32px;
   right: 32px;
@@ -343,12 +343,3 @@ footer a{ color: var(--ink); text-decoration:none; }
   .circular-text{ top: 20px; right: 20px; width: 55px; height: 55px; }
   .circular-text span{ font-size: 6px; }
 }
-}
-@keyframes ct-rotate{
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@media (max-width: 640px){
-  .circular-text{ top: 20px; right: 20px; width: 80px; height: 80px; }
-  .circular-text span{ font-size: 8px; }
-                       }
