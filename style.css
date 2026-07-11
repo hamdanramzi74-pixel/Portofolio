@@ -298,10 +298,4 @@ footer a{ color: var(--ink); text-decoration:none; }
   .circular-text span{ font-size: 6px; }
 .circular-text{ top: 20px; right: 20px; width...
 .circular-text span{ font-size: 6px; }
-}.scroll-reveal-text{
-  margin: 0;
-}
-.scroll-reveal-text .word{
-  display: inline-block;
-  will-change: opacity, filter;
-}
+}.
