@@ -28,9 +28,11 @@ function initSplitText(selector, options = {}) {
             ...to,
             duration: duration,
             ease: ease,
-            stagger: delay / 1000
+            stagger: delay / 1000,
+            overwrite: 'auto'
           });
-          observer.unobserve(el);
+        } else {
+          gsap.set(chars, from);
         }
       });
     }, { threshold: threshold, rootMargin: rootMargin });
