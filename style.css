@@ -284,6 +284,12 @@ footer a{ color: var(--ink); text-decoration:none; }
   to { transform: rotate(360deg); }
 }
 
+/* Split text char */
+.split-char{
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
 @media (max-width: 640px){
   .about{ grid-template-columns:1fr; }
   .contact-grid{ grid-template-columns:1fr; }
@@ -291,15 +297,16 @@ footer a{ color: var(--ink); text-decoration:none; }
   .work-thumb{ width: 70px; height: 50px; }
   .work-num{ display:none; }
   .work-meta{ display:none; }
-   nav{ display:none; }
   .bounceCardsContainer{ height: 200px; }
   .bounceCardsContainer .card{ width: 130px; height: 170px; margin-top: -85px; margin-left: -65px; }
   .circular-text{ top: 20px; right: 20px; width: 55px; height: 55px; }
   .circular-text span{ font-size: 6px; }
-.circular-text{ top: 20px; right: 20px; width...
-.circular-text span{ font-size: 6px; }
-}.
-  .split-char{
-  display: inline-block;
-  will-change: transform, opacity;
+  header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 20px;
   }
+  nav{ gap: 16px; }
+  nav a{ font-size: 11px; }
+}
