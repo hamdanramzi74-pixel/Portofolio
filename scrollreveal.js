@@ -1,30 +1,67 @@
-gsap.registerPlugin(ScrollTrigger);
+function initScrollReveal(selector, options = {}) {
+  const el = document.querySelector(selector);
+  if (!el) return;
 
-document.querySelectorAll('.scroll-reveal').forEach((el) => {
-  const words = el.textContent.split(/(\s+)/).map(w =>
-    w.match(/^\s+$/) ? w : `<span class="word">${w}</span>`
-  ).join('');
-  el.innerHTML = words;
+  const {
+    enableBlur = true,
+    baseOpacity = 0.1,
+    baseRotation = 3,
+    blurStrength = 4,
+    rotationEnd = 'bottom bottom',
+    wordAnimationEnd = 'bottom bottom'
+  } = options;
 
-  const wordEls = el.querySelectorAll('.word');
+  const originalText = el.textContent;
+  const parts = originalText.split(/(\s+)/);
+  el.innerHTML = parts.map(function (w) {
+    return w.match(/^\s+$/) ? w : '<span class="word">' + w + '</span>';
+  }).join('');
 
   gsap.fromTo(el,
-    { transformOrigin: '0% 50%', rotate: 3 },
+    { transformOrigin: '0% 50%', rotate: baseRotation },
     {
-      rotate: 0,
       ease: 'none',
-      scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom bottom', scrub: true }
+      rotate: 0,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top bottom',
+        end: rotationEnd,
+        scrub: true
+      }
     }
   );
 
-  gsap.fromTo(wordEls,
-    { opacity: 0.1, filter: 'blur(4px)' },
+  const words = el.querySelectorAll('.word');
+
+  gsap.fromTo(words,
+    { opacity: baseOpacity },
     {
-      opacity: 1,
-      filter: 'blur(0px)',
       ease: 'none',
+      opacity: 1,
       stagger: 0.05,
-      scrollTrigger: { trigger: el, start: 'top bottom-=20%', end: 'bottom bottom', scrub: true }
+      scrollTrigger: {
+        trigger: el,
+        start: 'top bottom-=20%',
+        end: wordAnimationEnd,
+        scrub: true
+      }
     }
   );
-});
+
+  if (enableBlur) {
+    gsap.fromTo(words,
+      { filter: 'blur(' + blurStrength + 'px)' },
+      {
+        ease: 'none',
+        filter: 'blur(0px)',
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top bottom-=20%',
+          end: wordAnimationEnd,
+          scrub: true
+        }
+      }
+    );
+  }
+}
