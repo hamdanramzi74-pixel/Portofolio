@@ -125,9 +125,12 @@
   });
 
   initScrollReveal('#aboutReveal', {
-    baseOpacity: 0.1,
-    baseRotation: 3,
-    blurStrength: 4
+  baseOpacity: 0.1,
+  baseRotation: 3,
+  blurStrength: 4,
+  rotationEnd: 'top 30%',
+  wordAnimationEnd: 'top 20%'
+});
   });
 
   document.querySelectorAll('.bounceCardsContainer .card').forEach(function (card) {
