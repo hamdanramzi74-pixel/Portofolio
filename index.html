@@ -6,6 +6,7 @@
 <title>Portofolio — Hamdan Ramzi</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 <div class="noise"></div>
@@ -66,7 +67,7 @@
       <div><strong>12</strong>Clients</div>
     </div>
   </div>
-  <p>Saya seorang front-end developer yang fokus pada detail kecil yang membuat perbedaan besar — tipografi, motion, dan struktur yang jelas. Setiap proyek dimulai dari pertanyaan sederhana: apa yang benar-benar dibutuhkan orang yang memakainya?</p>
+  <p id="aboutReveal">Saya seorang front-end developer yang fokus pada detail kecil yang membuat perbedaan besar — tipografi, motion, dan struktur yang jelas. Setiap proyek dimulai dari pertanyaan sederhana: apa yang benar-benar dibutuhkan orang yang memakainya?</p>
 </section>
 
 <section id="contact">
@@ -104,7 +105,10 @@
 <script src="animasi.js"></script>
 <script src="typetext.js"></script>
 <script src="circulartext.js"></script>
+<script src="scrollreveal.js"></script>
 <script>
+  gsap.registerPlugin(ScrollTrigger);
+
   initBounceCards('.bounceCardsContainer', {
     transformStyles: [
       'rotate(-8deg) translate(-90px)',
@@ -118,6 +122,12 @@
     spinDuration: 20,
     onHover: "speedUp",
     radius: 30
+  });
+
+  initScrollReveal('#aboutReveal', {
+    baseOpacity: 0.1,
+    baseRotation: 3,
+    blurStrength: 4
   });
 
   document.querySelectorAll('.bounceCardsContainer .card').forEach(function (card) {
