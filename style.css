@@ -291,9 +291,14 @@ footer a{ color: var(--ink); text-decoration:none; }
   .work-thumb{ width: 70px; height: 50px; }
   .work-num{ display:none; }
   .work-meta{ display:none; }
-  nav{ display:none; }
   .bounceCardsContainer{ height: 200px; }
   .bounceCardsContainer .card{ width: 130px; height: 170px; margin-top: -85px; margin-left: -65px; }
   .circular-text{ top: 20px; right: 20px; width: 55px; height: 55px; }
   .circular-text span{ font-size: 6px; }
+.circular-text{ top: 20px; right: 20px; width...
+.circular-text span{ font-size: 6px; }
+header{ padding: 20px 20px; flex-wrap: wrap; }
+nav{ gap: 14px; }
+nav a{ font-size: 10px; }
+              }
 }
