@@ -301,12 +301,15 @@ footer a{ color: var(--ink); text-decoration:none; }
   .bounceCardsContainer .card{ width: 130px; height: 170px; margin-top: -85px; margin-left: -65px; }
   .circular-text{ top: 20px; right: 20px; width: 55px; height: 55px; }
   .circular-text span{ font-size: 6px; }
+  .hero h1{ font-size: 13vw; white-space: nowrap; }
+
   header{
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    gap: 14px;
-    padding: 20px 20px;
+    padding: 20px 16px;
   }
-  nav{ gap: 16px; }
-  nav a{ font-size: 11px; }
+  .logo{ font-size: 11px; }
+  .logo span{ font-size: 8px; }
+  nav{ gap: 10px; }
+  nav a{ font-size: 9px; }
 }
