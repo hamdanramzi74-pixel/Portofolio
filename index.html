@@ -37,3 +37,109 @@
   </div>
 
   <div class="bounceCardsContainer">
+    <div class="card" data-title="Nootspaces" data-desc="Media website untuk mendokumentasikan pemikiran dan ide, dengan estetika modern yang mencerminkan gaya media minimalis." data-year="2026" data-type="Design & Development">
+      <img class="image" src="1.jpg" alt="Nootspaces">
+    </div>
+    <div class="card" data-title="Studio Archive" data-desc="Arsip proyek studio, disusun rapi dengan navigasi yang jelas dan fokus pada tipografi." data-year="2025" data-type="Development">
+      <img class="image" src="2.jpg" alt="Studio Archive">
+    </div>
+    <div class="card" data-title="Monoline" data-desc="Eksplorasi desain visual bertema garis tunggal (monoline), sederhana dan penuh detail." data-year="2025" data-type="Design">
+      <img class="image" src="3.jpg" alt="Monoline">
+    </div>
+  </div>
+
+  <div class="work-caption" id="workCaption">
+    <div class="wc-meta">
+      <span id="wcYear">—</span>
+      <span id="wcType">Tap salah satu foto di atas</span>
+    </div>
+    <h3 id="wcTitle">Pilih Project</h3>
+    <p id="wcDesc" class="typewrite"></p>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div>
+    <div class="big-num" id="splitNum">23</div>
+    <div class="about-stats">
+      <div><strong>4+</strong>Years</div>
+      <div><strong>30+</strong>Projects</div>
+      <div><strong>12</strong>Clients</div>
+    </div>
+  </div>
+  <p>Saya seorang front-end developer yang fokus pada detail kecil yang membuat perbedaan besar — tipografi, motion, dan struktur yang jelas. Setiap proyek dimulai dari pertanyaan sederhana: apa yang benar-benar dibutuhkan orang yang memakainya?</p>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <h2 id="splitContact">CONTACT</h2>
+    <div class="count">Let's talk</div>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <p class="desc">Punya proyek yang ingin dikerjakan bersama? Kirim pesan dan mari kita mulai obrolannya.</p>
+      <div class="info-block"><label>Address</label><div>Jl. Melati No. 21, Bandung</div></div>
+      <div class="info-block"><label>Phone</label><div>+62 812 3456 7890</div></div>
+      <div class="info-block"><label>E-mail</label><div>hello@hamdanramzi.dev</div></div>
+    </div>
+    <div class="form">
+      <h3>Contact Form</h3>
+      <form action="#" method="post">
+        <div class="field"><input type="text" name="name" placeholder="Your name"></div>
+        <div class="field"><input type="tel" name="phone" placeholder="Your phone"></div>
+        <div class="field"><input type="email" name="email" placeholder="Your e-mail"></div>
+        <div class="field"><textarea name="message" rows="3" placeholder="Message"></textarea></div>
+        <button type="submit" class="send-btn">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>© 2026 Hamdan Ramzi</div>
+  <a href="mailto:hello@hamdanramzi.dev">hello@hamdanramzi.dev</a>
+</footer>
+
+<script src="animasi.js"></script>
+<script src="typetext.js"></script>
+<script src="circulartext.js"></script>
+<script>
+  initBounceCards('.bounceCardsContainer', {
+    cardStyles: [
+      { rotation: -8, x: -90 },
+      { rotation: 4, x: 0 },
+      { rotation: -3, x: 90 }
+    ]
+  });
+
+  initCircularText('#heroCircular', {
+    text: "EVERYTHING*ABOUT*ME*",
+    spinDuration: 20,
+    onHover: "speedUp",
+    radius: 30
+  });
+
+  initSplitText('#splitPortofolio, #splitNum, #splitWork, #splitContact', {
+    delay: 50,
+    duration: 1.25,
+    ease: 'power3.out',
+    from: { opacity: 0, y: 60 },
+    to: { opacity: 1, y: 0 },
+    threshold: 0.1,
+    rootMargin: '0px'
+  });
+
+  document.querySelectorAll('.bounceCardsContainer .card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      document.getElementById('wcTitle').textContent = card.dataset.title;
+      document.getElementById('wcYear').textContent = card.dataset.year;
+      document.getElementById('wcType').textContent = card.dataset.type;
+      typeOnce(document.getElementById('wcDesc'), card.dataset.desc, 25);
+    });
+  });
+</script>
+
+</body>
+</html>
