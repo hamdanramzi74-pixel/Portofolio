@@ -108,12 +108,12 @@
 <script src="circulartext.js"></script>
 <script>
   initBounceCards('.bounceCardsContainer', {
-    transformStyles: [
-      'rotate(-8deg) translate(-90px)',
-      'rotate(4deg) translate(0px)',
-      'rotate(-3deg) translate(90px)'
-    ]
-  });
+  cardStyles: [
+    { rotation: -8, x: -90 },
+    { rotation: 4, x: 0 },
+    { rotation: -3, x: 90 }
+  ]
+});
 
   initCircularText('#heroCircular', {
     text: "EVERYTHING*ABOUT*ME*",
@@ -131,7 +131,6 @@
   threshold: 0.1,
   rootMargin: '0px'
 });
-  });
 
   document.querySelectorAll('.bounceCardsContainer .card').forEach(function (card) {
     card.addEventListener('click', function () {
@@ -140,7 +139,6 @@
       document.getElementById('wcType').textContent = card.dataset.type;
       typeOnce(document.getElementById('wcDesc'), card.dataset.desc, 25);
     });
-  });
 </script>
 
 </body>
