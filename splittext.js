@@ -9,28 +9,27 @@ function initSplitText(selector, options = {}) {
     from = { opacity: 0, y: 40 },
     to = { opacity: 1, y: 0 },
     threshold = 0.1,
-    rootMargin = '-100px'
+    rootMargin = '0px'
   } = options;
 
-  elements.forEach(el => {
+  elements.forEach(function (el) {
     const text = el.textContent;
-    el.innerHTML = text.split('').map(ch =>
-      ch === ' ' ? ' ' : '<span class="split-char">' + ch + '</span>'
-    ).join('');
+    el.innerHTML = text.split('').map(function (ch) {
+      return ch === ' ' ? ' ' : '<span class="split-char">' + ch + '</span>';
+    }).join('');
 
     const chars = el.querySelectorAll('.split-char');
     gsap.set(chars, from);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          gsap.to(chars, {
-            ...to,
+          gsap.to(chars, Object.assign({}, to, {
             duration: duration,
             ease: ease,
             stagger: delay / 1000,
             overwrite: 'auto'
-          });
+          }));
         } else {
           gsap.set(chars, from);
         }
